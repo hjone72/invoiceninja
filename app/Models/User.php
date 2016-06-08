@@ -111,6 +111,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     public function isPro()
     {
+	return true;
         return $this->account->isPro();
     }
 

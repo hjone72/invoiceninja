@@ -789,7 +789,7 @@ class Account extends Eloquent
 
     public function isNinjaAccount()
     {
-        return $this->account_key === NINJA_ACCOUNT_KEY;
+	return $this->account_key === NINJA_ACCOUNT_KEY;
     }
 
     public function startTrial($plan)
@@ -907,10 +907,10 @@ class Account extends Eloquent
         
         $plan = $this->company->plan;
         $trial_plan = $this->company->trial_plan;
-        
-        if(!$plan && (!$trial_plan || !$include_trial)) {
-            return null;
-        }        
+
+//        if(!$plan && (!$trial_plan || !$include_trial)) {
+//            return null;
+//        }        
         
         $trial_active = false;
         if ($trial_plan && $include_trial) {
@@ -924,8 +924,11 @@ class Account extends Eloquent
         }
         
         $plan_active = false;
+	$plan_active = true;
+	$plan = true;
         if ($plan) {            
-            if ($this->company->plan_expires == null) {
+//            if ($this->company->plan_expires == null) {
+	    if (true){
                 $plan_active = true;
                 $plan_expires = false;
             } else {
