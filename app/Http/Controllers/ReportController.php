@@ -46,7 +46,7 @@ class ReportController extends BaseController
     {
         $action = Input::get('action');
 
-        if (Input::all()) {
+        if (Input::get('start_date') != null) {
             $groupBy = Input::get('group_by');
             $chartType = Input::get('chart_type');
             $reportType = Input::get('report_type');
